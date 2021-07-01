@@ -40,7 +40,6 @@
     ]
   },
   "devDependencies": {
-    "jest-cucumber": "^3.0.1",
     "redux-devtools": "^3.7.0"
   }
 }
