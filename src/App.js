@@ -27,11 +27,9 @@ function App() {
        <Navbar />
       </ThemeProvider>
       <LoginScreen />
-      <div>
-       <ThemeProvider theme={theme}>
-        <Footer />
-       </ThemeProvider>
-      </div> 
+      <ThemeProvider theme={theme}>
+       <Footer />
+      </ThemeProvider> 
   </>
   );
 }
