@@ -2,7 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
-import SocialButton from './components/SocialButton';
+import LoginScreen from './components/LoginScreen';
 import Footer from './components/Footer';  
 
 
@@ -26,7 +26,7 @@ function App() {
       <ThemeProvider theme={theme}>
        <Navbar />
       </ThemeProvider>
-      <SocialButton />
+      <LoginScreen />
       <div>
        <ThemeProvider theme={theme}>
         <Footer />
