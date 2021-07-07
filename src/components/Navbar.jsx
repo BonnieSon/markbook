@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 //import IconButton from '@material-ui/core/IconButton';
 //import MenuIcon from '@material-ui/icons/Menu';
-//import Typography from '@material-ui/core/Typography';
+import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 
 
@@ -13,9 +13,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(1),
-  },
+  
   blank: {
     flexGrow: 1,
   },
@@ -31,11 +29,11 @@ export default () => {
     <div className={classes.root}>
       <AppBar position="static" color="secondary">
         <Toolbar>   
-          <Button color="inherit"><img src="./images/logo.png" />
-            {/* <Typography color="Primary" >
-              markbook
-            </Typography>  */}
-           </Button>
+          {/* <Button color="inherit" className={classes.logoBtn}><img src="./images/logo.png" /> */}
+            <Typography>
+              <a href="#" className={classes.logo}><img src="./images/logo.png" alt="logo" /></a>
+            </Typography> 
+           {/* </Button> */}
           <div className={classes.blank}>            
           </div>
           <Button variant="outlined" className={classes.login}>Login</Button>
