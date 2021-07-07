@@ -19,18 +19,33 @@ import { makeStyles } from '@material-ui/core/styles';
        
         title: {
           textAlign: 'center',
-          margin: theme.spacing(10, 'auto'),
+          padding: theme.spacing(7, 0),
         },
         login: {
           width: '30%',
           // margin: 'auto',
-          margin: theme.spacing(15, 'auto'),
+          margin: theme.spacing(5, 'auto'),
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           flexDirection: 'column',
           // textAlign: 'center',
+          
         },
+        facebook: {
+          width:'60%',
+          marginBottom: '1rem',
+          textAlign: 'center',
+          // margin: '0',
+        },
+        google: {
+          width:'60%',
+          marginBottom: '1rem',
+        },
+        apple: {
+          width:'60%',
+        },
+
       }));
 
 
@@ -42,9 +57,15 @@ import { makeStyles } from '@material-ui/core/styles';
         <>  
           <h1 className={classes.title}>markbook 로그인</h1>
           <div className={classes.login}>
-           <FacebookLoginButton onClick={() => handleClick('facebook')} />
+            <div className={classes.facebook}>
+             <FacebookLoginButton onClick={() => handleClick('facebook')} />
+            </div>   
+           <div className={classes.google}>
            <GoogleLoginButton onClick={() => handleClick('google')} />
+           </div> 
+           <div className={classes.apple}>
            <AppleLoginButton onClick={() => handleClick('apple')} />
+           </div> 
           </div>
         </>  
         );
