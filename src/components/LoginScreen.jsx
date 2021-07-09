@@ -5,12 +5,10 @@ import {
     AppleLoginButton,
     } from 'react-social-login-buttons';
 import { makeStyles } from '@material-ui/core/styles';
+import { useDispatch } from 'react-redux';
+import { GOOGLE_LOGIN, FACEBOOK_LOGIN, APPLE_LOGIN } from '../user/loginSaga';
 
 
-
-      const handleClick = (type) => {
-        alert(`type : ${type}`);
-      }
 
       const useStyles = makeStyles((theme) => ({
         root: {
@@ -51,6 +49,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
     export default () => {
       const classes = useStyles();
+      const dispatch = useDispatch();
 
 
         return (
@@ -58,13 +57,13 @@ import { makeStyles } from '@material-ui/core/styles';
           <h1 className={classes.title}>markbook 로그인</h1>
           <div className={classes.login}>
             <div className={classes.facebook}>
-             <FacebookLoginButton onClick={() => handleClick('facebook')} />
+             <FacebookLoginButton text="facebook 연결하기" onClick={() => dispatch(FACEBOOK_LOGIN)} />
             </div>   
            <div className={classes.google}>
-           <GoogleLoginButton onClick={() => handleClick('google')} />
+           <GoogleLoginButton text="Google 연결하기" onClick={() => dispatch(GOOGLE_LOGIN)} />
            </div> 
            <div className={classes.apple}>
-           <AppleLoginButton onClick={() => handleClick('apple')} />
+           <AppleLoginButton text="Apple 연결하기" onClick={() => dispatch(APPLE_LOGIN)} />
            </div> 
           </div>
         </>  
