@@ -54,13 +54,13 @@ export default () => {
       <h1 className={classes.title}>markbook 로그인</h1>
       <div className={classes.login}>
         <div className={classes.facebook}>
-          <FacebookLoginButton text="facebook 연결하기" onClick={() => dispatch(FACEBOOK_LOGIN)} />
+          <FacebookLoginButton text="facebook 연결하기" onClick={() => dispatch(FACEBOOK_LOGIN())} />
         </div>   
         <div className={classes.google}>
-          <GoogleLoginButton text="Google 연결하기" onClick={() => dispatch(GOOGLE_LOGIN)} />
+          <GoogleLoginButton text="Google 연결하기" onClick={() => dispatch(GOOGLE_LOGIN())} />
         </div> 
         <div className={classes.apple}>
-          <AppleLoginButton text="Apple 연결하기" onClick={() => dispatch(APPLE_LOGIN)} />
+          <AppleLoginButton text="Apple 연결하기" onClick={() => dispatch(APPLE_LOGIN())} />
         </div> 
       </div>
     </>  
