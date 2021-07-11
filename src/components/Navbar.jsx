@@ -31,7 +31,7 @@ export default () => {
         <Toolbar>   
           {/* <Button color="inherit" className={classes.logoBtn}><img src="./images/logo.png" /> */}
             <Typography>
-              <a href="#" className={classes.logo}><img src="./images/logo.png" alt="logo" /></a>
+              <a href="#" className={classes.logo}><img src="./images/logo.png" alt="markbook" /></a>
             </Typography> 
            {/* </Button> */}
           <div className={classes.blank}>            
