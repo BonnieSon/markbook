@@ -40,13 +40,14 @@ function* loginStatusWatcher() {
     if (user) {
       const snapshot = yield call(rsf.firestore.getDocument, `users/${user.uid}`);
       const serviceUser = snapshot.data(); // 없으면 null이 리턴 
+      if(serviceUser) {
       history.push('/mainpage');
-      if (serviceUser === null){
+      } else {
       history.push('/signup');
-     }
-      } 
-    }
-  }
+      }
+    } 
+  };
+}
 
 function* getDocument() {
   const snapshot = yield call(rsf.firestore.getDocument, `users/${user.uid}`);
