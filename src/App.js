@@ -7,7 +7,6 @@ import Footer from './components/Footer';
 import { Switch, Route } from 'react-router-dom';
 import SignUpScreen from './components/SignUpScreen';
 
-
 function App() {
   const theme = createMuiTheme({
     palette: {
