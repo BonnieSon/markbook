@@ -41,9 +41,9 @@ function* loginStatusWatcher() {
       const snapshot = yield call(rsf.firestore.getDocument, `users/${user.uid}`);
       const serviceUser = snapshot.data(); // 없으면 null이 리턴 
       if(serviceUser) {
-      history.push('/mainpage');
+        history.push('/mainpage');
       } else {
-      history.push('/signup');
+        history.push('/signup');
       }
     } 
   };
