@@ -6,24 +6,14 @@ import Typography from '@material-ui/core/Typography';
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    width:'100%',
-    height: '100px',
-    position: 'absolute',
-    bottom: 0,
-    textAlign: 'center',
-    color: '#ffffff',
-  },
   appBar: {
-    margin: theme.spacing(80, 0, 0, 0),
-    content: '3rem',
+    position: 'static',
   },
   toolBar: {
     minHeight: '120px',
   },
   text: {
-    margin: theme.spacing('1rem', 'auto'),
+    margin: theme.spacing('auto','16rem'),
     color: '#ffffff',
   },
   copy: {
@@ -36,7 +26,7 @@ export default () => {
   const classes = useStyles();
 
   return (
-    <footer className={classes.root}>
+    <>
       <AppBar position="absolute" backgroundcolor="primary" className={classes.appBar} >
         <Toolbar className={classes.toolBar}>   
           <img src="./images/footer_logo.png" />
@@ -46,6 +36,6 @@ export default () => {
             </Typography>
         </Toolbar>
       </AppBar>
-    </footer>
+    </>
   );
 }
