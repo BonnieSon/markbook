@@ -1,9 +1,8 @@
+import react from 'react';
 import './App.css';
-import Navbar from './components/Navbar';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import LoginScreen from './components/LoginScreen';
-import Footer from './components/Footer';  
 import { Switch, Route } from 'react-router-dom';
 import SignUpScreen from './components/SignUpScreen';
 
@@ -16,25 +15,26 @@ function App() {
       secondary: {
         main: '#ffffff',
       },
+      inherit: {
+      main: '#4D2900',
+      },
     },
   });
 
   return (
     <>   
-      <ThemeProvider theme={theme}>
-       <Navbar />
-      </ThemeProvider>
       <Switch>
         <Route exact path="/">
-          <LoginScreen />
+          <ThemeProvider theme={theme}>
+            <LoginScreen />
+          </ThemeProvider>          
         </Route>
         <Route path="/signup">
-          <SignUpScreen />
+          <ThemeProvider theme={theme}>
+            <SignUpScreen />
+          </ThemeProvider>          
         </Route>
-      </Switch>
-      <ThemeProvider theme={theme}>
-       <Footer />
-      </ThemeProvider> 
+      </Switch> 
   </>
   );
 }
