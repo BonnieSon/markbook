@@ -39,7 +39,10 @@ function* loginStatusWatcher() {
     //console.log(`user ${user}`);
     if (user) {
       const snapshot = yield call(rsf.firestore.getDocument, `users/${user.uid}`);
+      console.log(`snapshot :${JSON.stringify(snapshot)}`);
       const serviceUser = snapshot.data(); // 없으면 null이 리턴 
+      console.log(`serviceUser :${serviceUser}`);
+
       if(serviceUser) {
         history.push('/mainpage');
       } else {
@@ -47,11 +50,6 @@ function* loginStatusWatcher() {
       }
     } 
   };
-}
-
-function* getDocument() {
-  const snapshot = yield call(rsf.firestore.getDocument, `users/${user.uid}`);
-  const user = snapshot.data(); // 없으면 null이 리턴 
 }
 
 export default function* loginRootSaga() {
