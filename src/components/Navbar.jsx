@@ -3,17 +3,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
-//import IconButton from '@material-ui/core/IconButton';
-//import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  header: {
     flexGrow: 1,
-  },
-  
+    margin: theme.spacing(0, 'auto'),
+  }, 
   blank: {
     flexGrow: 1,
   },
@@ -26,21 +24,17 @@ export default () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static" color="secondary">
-        <Toolbar>   
-          {/* <Button color="inherit" className={classes.logoBtn}><img src="./images/logo.png" /> */}
+      <AppBar position="static" color="secondary" className={classes.header}>
+        <Toolbar className={classes.inner}>   
             <Typography>
               <a href="#" className={classes.logo}><img src="./images/logo.png" alt="markbook" /></a>
             </Typography> 
-           {/* </Button> */}
-          <div className={classes.blank}>            
-          </div>
+            <div className={classes.blank}>            
+            </div>
           <Button variant="outlined" className={classes.login}>Login</Button>
           <Avatar />
         </Toolbar>
       </AppBar>
-    </div>
   );
 }
 
