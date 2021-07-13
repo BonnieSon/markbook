@@ -6,6 +6,7 @@ import LoginScreen from './components/LoginScreen';
 import Footer from './components/Footer';  
 import { Switch, Route } from 'react-router-dom';
 import SignUpScreen from './components/SignUpScreen';
+import MainScreen from './components/MainScreen';
 
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path="/signup">
           <SignUpScreen />
+        </Route>
+        <Route path="/mainpage">
+          <MainScreen />
         </Route>
       </Switch>
       <ThemeProvider theme={theme}>
