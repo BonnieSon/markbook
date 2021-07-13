@@ -3,8 +3,6 @@ const server = jsonServer.create()
 const router = jsonServer.router('server/db.json')
 const middlewares = jsonServer.defaults()
 
-console.log(`router ${JSON.stringify(router)}`);
- 
 // Set default middlewares (logger, static, cors and no-cache)
 server.use(middlewares)
  
@@ -26,6 +24,6 @@ server.use((req, res, next) => {
  
 // Use default router
 server.use(router)
-server.listen(3000, () => {
+server.listen(7000, () => {
   console.log('JSON Server is running')
 })
