@@ -44,15 +44,16 @@ function* loginStatusWatcher() {
     //console.log(`user ${user}`);
     if (user) {
       const token = yield user.getIdToken();
-      console.log(`token ${JSON.stringify(token)}`);
+      // console.log(`token ${JSON.stringify(token)}`);
       try{
         const serviceUser = yield instance.get(`/users/${user.uid}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
         });
+        console.log(`service user : ${serviceUser}`);
         if(serviceUser){
-          console.log(JSON.stringify(serviceUser.data));
+          //console.log(JSON.stringify(serviceUser.data));
           history.push('/mainpage');
         }
       } catch(err) {
