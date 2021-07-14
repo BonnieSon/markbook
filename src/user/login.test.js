@@ -35,7 +35,8 @@ test('회원가입 안 한 사용자의 로그인', async () =>{
   //When 로그인을 하면
   const user = await firebaseApp.auth().signInWithEmailAndPassword('unregister@test.com', 'test123');
   //Then 회원가입 페이지로 이동한다.
-  //expect(screen.getAllByText('SignUP'))
+  await sleep(5000);
+  expect(screen.getAllByText('SignUP'))
 });
 
 
@@ -60,5 +61,6 @@ test('회원가입 한 사용자가 로그인을 하면 메인페이지로 이�
     //When 로그인을 하면
     const serviceUser = await firebaseApp.auth().signInWithEmailAndPassword('register@test.com', 'test123');
     //Then 메인 페이지로 이동한다.
-    //expect(screen.getAllByText('mainpage'))
+    await sleep(5000);
+    expect(screen.getAllByText('mainpage'))
   });
