@@ -12,17 +12,14 @@ export const useStyles = makeStyles((theme) => ({
             flexDirection: 'column',
         },         
         root: {
-          '*': {
-            color: 'red',
-          },
           margin: theme.spacing(1),
           display: 'flex',
           justifyContent: 'center',
           flexDirection: 'column',
         },
         text: {
-          paddingBottom: '1rem',
-          marginTop: '1rem',
+          paddingBottom: '1.2rem',
+          marginTop: '2rem',
           fontWeight: 'bold',
           },
         birth: {
@@ -51,6 +48,9 @@ export const useStyles = makeStyles((theme) => ({
         gender: {
           display: 'inline',
         },
+        category: {
+          flexDirection: 'column',
+        },
         avatar: {
           width: theme.spacing(7),
           height: theme.spacing(7),
@@ -60,17 +60,15 @@ export const useStyles = makeStyles((theme) => ({
           display: 'none',
         },
         fileBtn: {
-          margin: theme.spacing(3, 'auto'),
+          margin: theme.spacing(3, -0.3),
           display: 'flex',
           flexDirection: 'row',
         },
         upLoadBtn: {
           marginRight: '2rem',
         },
-        signUpBtn: {
-          marginTop: '6rem',
-          padding: theme.spacing(2, 20),
-          fontSize: '20px',
-        },
+        delBtn: {
+          marginRight: '-5rem',
+        }
     }));
 

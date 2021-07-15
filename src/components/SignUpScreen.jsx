@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { BasicTextFields, RadioButtonsGroup, CheckboxLabels, ImageAvatars, UploadButtons } from './SignUp';
-import Navbar from './Navbar';
-import Footer from './Footer';
 import { useDispatch } from 'react-redux';
 import { register } from '../user/signUpSaga';
 
@@ -10,12 +8,12 @@ import { register } from '../user/signUpSaga';
 const useStyles = makeStyles((theme) => ({
   background: {
     backgroundColor: '#FAEBD7',
-    margin: theme.spacing('5rem', '15rem'),
+    margin: theme.spacing('5rem', '22rem'),
     borderRadius: '5%',
   },
   title: {
     width: '60%',
-    padding: theme.spacing(5, 0, 0, '13rem'),
+    padding: theme.spacing(5, 0, 0, '10rem'),
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -23,11 +21,11 @@ const useStyles = makeStyles((theme) => ({
     color: "#391F00",
   },
   form: {
-    margin:theme.spacing('6rem', '24rem'),
+    margin:theme.spacing('4rem', '16rem'),
     },
   submitBtn: {
-    margin: theme.spacing('4rem', '-1.3rem'),
-    padding: theme.spacing(2, 20),
+    margin: theme.spacing('4rem', '-0.5rem'),
+    padding: theme.spacing(2, 15),
     fontSize: '20px',
     border: 'none',
     backgroundColor:'#e0e0e0',
@@ -55,9 +53,7 @@ const SignUpScreen = () =>{
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  return (
-  <div> 
-    <Navbar />    
+  return (  
     <div className={classes.background} >
       <h1 className={classes.title}>markbook 회원가입</h1>
       <form onSubmit={onSubmit} className={classes.form}>
@@ -69,8 +65,6 @@ const SignUpScreen = () =>{
         <input type="submit" variant="contained" href="#contained-buttons" className={classes.submitBtn} onClick={() => dispatch(register())} />
       </form> 
     </div>
-    <Footer />
-  </div>   
   );
 };
 
