@@ -14,82 +14,82 @@ import { useStyles } from './SignUpStyles';
 
 
 export function BasicTextFields() {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-      <>
+  return (
+    <>
       <div className={classes.root}> 
-          <Typography className={classes.text}>
-            닉네임*
-          </Typography>
-          <TextField  name="nickName" id="standard-basic" label="닉네임" noValidate autoComplete="off" className={classes.idText} />
+        <Typography className={classes.text}>
+          닉네임*
+        </Typography>
+        <TextField  name="nickName" id="standard-basic" label="닉네임" noValidate autoComplete="off" className={classes.idText} />
       </div>    
       <div className={classes.root}>  
-          <Typography className={classes.text}>
-            생년월일*
-          </Typography>
-            <TextField
-                name="birthday"
-                id="date"
-                type="date"
-                defaultValue="2017-05-24"
-                className={classes.textField}
-                InputLabelProps={{
-                shrink: true,
-               }}
-            />
-       </div>       
-</>
+        <Typography className={classes.text}>
+          생년월일*
+        </Typography>
+        <TextField
+          name="birthday"
+          id="date"
+          type="date"
+          defaultValue="2017-05-24"
+          className={classes.textField}
+          InputLabelProps={{
+          shrink: true,
+          }}
+        />
+      </div>       
+    </>
   );
 }
 
 export function RadioButtonsGroup() {
-    const classes = useStyles();
-    
-    return (
-      <div className={classes.root}>
-        <Typography className={classes.text}>
-          성별*
-        </Typography>
-        <RadioGroup className={classes.gender} aria-label="gender" name="gender">
-          <FormControlLabel value="female" control={<Radio size="small" color="#C4C4C4" />} label="여성" />
-          <FormControlLabel value="male" control={<Radio size="small" color="#C4C4C4" />} label="남성" />
-        </RadioGroup>
-      </div>    
-    );
+  const classes = useStyles();
+  
+  return (
+    <div className={classes.root}>
+      <Typography className={classes.text}>
+        성별*
+      </Typography>
+      <RadioGroup className={classes.gender} aria-label="gender" name="gender">
+        <FormControlLabel value="female" control={<Radio size="small" color="#C4C4C4" />} label="여성" />
+        <FormControlLabel value="male" control={<Radio size="small" color="#C4C4C4" />} label="남성" />
+      </RadioGroup>
+    </div>    
+  );
 }
 
 export function CheckboxLabels() {
   const classes = useStyles();
   
-    return (
-      <div className={classes.root}>
-        <Typography className={classes.text}>
-          관심분야*
-        </Typography>
-        <FormGroup row className={classes.category}>
-          <FormControlLabel
-            control={<Checkbox  name="categoryBusiness" color="primary" value="Business" />}
-            label="경영/경제"
-          />
-          <FormControlLabel
-            control={<Checkbox  name="categoryImprovment" color="primary" value="Improvment" />}
-            label="자기계발"
-          />
-          <FormControlLabel
-            control={<Checkbox name="categoryNovel" color="primary" value="Novel" />}
-            label="소설"
-          />
-          <FormControlLabel
-            control={<Checkbox  name="categoryHistory" color="primary" value="History" />}
-            label="역사"
-          />
+  return (
+    <div className={classes.root}>
+      <Typography className={classes.text}>
+        관심분야*
+      </Typography>
+      <FormGroup row className={classes.category}>
+        <FormControlLabel
+          control={<Checkbox  name="categoryBusiness" color="primary" value="Business" />}
+          label="경영/경제"
+        />
+        <FormControlLabel
+          control={<Checkbox  name="categoryImprovment" color="primary" value="Improvment" />}
+          label="자기계발"
+        />
+        <FormControlLabel
+          control={<Checkbox name="categoryNovel" color="primary" value="Novel" />}
+          label="소설"
+        />
+        <FormControlLabel
+          control={<Checkbox  name="categoryHistory" color="primary" value="History" />}
+          label="역사"
+        />
           <FormControlLabel
             control={<Checkbox  name="categoryScience" color="primary" value="Science" />}
             label="과학"
           />                        
-        </FormGroup>
-      </div>
+      </FormGroup>
+    </div>
   );
 }
 
@@ -120,19 +120,19 @@ export function UploadButtons() {
           multiple
           type="file"
         /> 
-      <label htmlFor="contained-button-file">
+        <label htmlFor="contained-button-file">
           <Button variant="contained" color="primary" component="span" className={classes.upLoadBtn} startIcon={<CloudUploadIcon />}>  
            파일선택
-        </Button>
-      </label>  
+          </Button>
+        </label>  
           <Button
           variant="contained"
           color="gray"
           className={classes.delBtn}
           startIcon={<DeleteIcon />}
-        >
-        파일삭제
-      </Button>
+          >
+          파일삭제
+          </Button>
       </div>
     </div>
   );
