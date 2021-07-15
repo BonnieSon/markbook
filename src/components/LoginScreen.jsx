@@ -53,7 +53,6 @@ export default () => {
 
   return (
     <>
-      <Navbar />
       <div className={classes.root}> 
         <h1 className={classes.title}>markbook 로그인</h1>
         <div className={classes.login}>
@@ -67,8 +66,7 @@ export default () => {
             <AppleLoginButton text="Apple 연결하기" onClick={() => dispatch(APPLE_LOGIN())} />
           </div> 
         </div>
-      </div>
-      <Footer /> 
+      </div> 
     </> 
   );
 }
