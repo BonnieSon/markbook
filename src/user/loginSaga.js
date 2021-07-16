@@ -56,7 +56,7 @@ function* loginStatusWatcher() {
           //console.log(JSON.stringify(serviceUser.data));
           history.push('/mainpage');
         }
-      } catch(err) {
+        }catch(err) {
         if (err.response.status === 404){
           history.push('/signup');
         } else {
