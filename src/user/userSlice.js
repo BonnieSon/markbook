@@ -1,9 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
+import '../config/types';
+
+
 
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
+    /**
+     * @type {User}
+    */
     user : null,    
+
   },
   reducers: {
     loginSuccess: (state, action) => {

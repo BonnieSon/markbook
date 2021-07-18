@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import { useSelector } from 'react-redux';
 import SearchIcon from '@material-ui/icons/Search';
+import '../config/types';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -58,7 +59,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar(){
   const classes = useStyles();
-  const user = useSelector(state => state.user.user);
+  /**
+   * @type {User}
+   **/
+  const user = useSelector(state => state.user.user); 
 
   return (
       <AppBar position="static" color="secondary" className={classes.header}>
@@ -69,7 +73,7 @@ export default function Navbar(){
             <div className={classes.blank}></div>
             { (user) && (<SearchBox/>) }
             { (user) ? <Button variant="outlined" className={classes.logout}>Logout</Button> : ( <Button variant="outlined" className={classes.login}>Login</Button> )}
-          { (user) ? <div><Avatar className={classes.avatar} /></div> : <Avatar />}
+          { (user) ? <div><Avatar src={user.avatarImg} /></div> : <Avatar />}
         </Toolbar>
       </AppBar>
   );
@@ -84,11 +88,3 @@ function SearchBox() {
     </div>
   );
 }
-
-
-// {
-//   nickName :
-//   gender :
-//   category : [business],
-//   fileImage : file
-// }

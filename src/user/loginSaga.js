@@ -4,6 +4,7 @@ import { reduxSagaFirebase as rsf} from '../config/reduxSagaFirebase';
 import { createAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { loginSuccess } from './userSlice';
+import '../config/types';
 
 const instance = axios.create({
   baseURL: 'http://localhost:7000',
@@ -50,7 +51,7 @@ function* loginStatusWatcher() {
             Authorization: `Bearer ${token}`
           }
         });
-        const serviceUser = response.data;
+        const serviceUser = response.data; 
         yield put(loginSuccess(serviceUser));
         history.push('/mainpage');
 
