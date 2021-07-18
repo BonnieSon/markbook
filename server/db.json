@@ -1,14 +1,20 @@
 {
-  "abc":[
-    {
-      "id": 1,
-      "name": "df"
-    }
-  ],
   "users": [
     {
-      "id": "yZbMHVNS0GbpIOO5wipnTuKaAVX2",
-      "name": "abc"
+      "id": "XCszjQfs6mN18aVdxIotgJ4fTjC3",
+      "nickName": "test",
+      "birthday": " ",
+      "gender": "m",
+      "likeCategory": ["science"],
+      "avatarImg": "https://www.w3schools.com/howto/img_avatar.png"
+    },
+    {
+      "id": "xu7rixqO4Wghj6FNaz5Vx0sQ0n52",
+      "nickName": "test",
+      "birthday": " ",
+      "gender": "m",
+      "likeCategory": ["science"],
+      "avatarImg": "https://www.w3schools.com/howto/img_avatar.png"
     }
   ]
 }

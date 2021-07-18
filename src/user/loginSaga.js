@@ -3,6 +3,8 @@ import { all, call, fork, getContext, put, take, takeEvery } from 'redux-saga/ef
 import { reduxSagaFirebase as rsf} from '../config/reduxSagaFirebase';
 import { createAction } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { loginSuccess } from './userSlice';
+import '../config/types';
 
 const instance = axios.create({
   baseURL: 'http://localhost:7000',
@@ -41,20 +43,18 @@ function* loginStatusWatcher() {
 
   while (true) {
     const { user } = yield take(channel); // 로그인시 user객체 로그아웃시 null을 반환한다.
-    //console.log(`user ${user}`);
     if (user) {
       const token = yield user.getIdToken();
-      console.log(`token ${JSON.stringify(token)}`);
       try{
-        const serviceUser = yield instance.get(`/users/${user.uid}`, {
+        const response = yield instance.get(`/users/${user.uid}`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
         });
-        if(serviceUser){
-          console.log(JSON.stringify(serviceUser.data));
-          history.push('/mainpage');
-        }
+        const serviceUser = response.data; 
+        yield put(loginSuccess(serviceUser));
+        history.push('/mainpage');
+
       } catch(err) {
         if (err.response.status === 404){
           history.push('/signup');
