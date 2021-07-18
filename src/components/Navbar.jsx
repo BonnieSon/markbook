@@ -78,6 +78,16 @@ export default () => {
   );
 }
 
+function SearchBox() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.search}>
+      <input type="search" name="search" placeholder="제목, 저자, 출판사 검색" className={classes.searchInput} /><button className={classes.searchBtn}><SearchIcon /></button>             
+    </div>
+  );
+}
+
 
 // {
 //   nickName :
