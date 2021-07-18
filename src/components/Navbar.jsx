@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import { useSelector } from 'react-redux';
 import SearchIcon from '@material-ui/icons/Search';
-import serviceUser from '../user/loginSaga';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -57,9 +56,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default () => {
+export default function Navbar(){
   const classes = useStyles();
-  const user = useSelector(state => state.user);
+  const user = useSelector(state => state.user.user);
 
   return (
       <AppBar position="static" color="secondary" className={classes.header}>
@@ -68,9 +67,7 @@ export default () => {
               <a href="#" className={classes.logo}><img src="./images/logo.png" alt="markbook" /></a>
             </Typography>
             <div className={classes.blank}></div>
-              { (user) ? ( <div className={classes.search}>
-              <input type="search" name="search" placeholder="제목, 저자, 출판사 검색" className={classes.searchInput} /><button className={classes.searchBtn}><SearchIcon /></button>             
-            </div>) : <div></div> }
+            { (user) && (<SearchBox/>) }
             { (user) ? <Button variant="outlined" className={classes.logout}>Logout</Button> : ( <Button variant="outlined" className={classes.login}>Login</Button> )}
           { (user) ? <div><Avatar className={classes.avatar} /></div> : <Avatar />}
         </Toolbar>
