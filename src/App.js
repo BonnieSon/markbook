@@ -7,7 +7,9 @@ import { Switch, Route } from 'react-router-dom';
 import SignUpScreen from './components/SignUpScreen';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import NavbarMainPage from './components/NavbarMainPage';
+import MainPage from './components/MainPage'; 
+import MainNavbar from './components/MainNavbar';
+
 
 function App() {
   const theme = createMuiTheme({
@@ -36,8 +38,9 @@ function App() {
           <Route path="/signup">
             <SignUpScreen />
           </Route>
-          <Route path="/navbarmain">
-            <NavbarMainPage />
+          <Route path="/mainpage">
+            <MainNavbar />
+            <MainPage />
           </Route>
         </Switch> 
       <ThemeProvider theme={theme}>    
