@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { BasicTextFields, RadioButtonsGroup, CheckboxLabels, ImageAvatars, UploadButtons } from './SignUp';
 import { useDispatch } from 'react-redux';
@@ -36,22 +36,31 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const SignUpScreen = () =>{
+const SignUpScreen = () => {
+
+  const classes = useStyles();
+  const dispatch = useDispatch();
 
   const onSubmit = (e) => {
     e.preventDefault();
 
+    //alert(e.target.checked);
+    const likeCategory = [];
     const registerData = {
       nickName: e.target.nickName.value,
       birthday: e.target.birthday.value,
       gender: e.target.gender.value,
+      likeCategory: likeCategory,
       avatarImg: e.target.avatarImg.value,
     }
+
+    if(e.target.categoryBusiness.checked){
+      likeCategory.push("Business")
+    }
+    if(e.target.categoryBusiness.checked)
+    alert (registerData);
     dispatch(register(registerData));
   };
-
-  const classes = useStyles();
-  const dispatch = useDispatch();
 
   return (  
     <div className={classes.background} >
@@ -62,7 +71,7 @@ const SignUpScreen = () =>{
         <CheckboxLabels />
         <ImageAvatars />
         <UploadButtons htmlType="submit" />
-        <input type="submit" variant="contained" href="#contained-buttons" className={classes.submitBtn} onClick={() => dispatch(register())} />
+        <input type="submit" variant="contained" href="#contained-buttons" className={classes.submitBtn} />
       </form> 
     </div>
   );
