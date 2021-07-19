@@ -27,3 +27,4 @@ node_modules
 
 # firebase.conf
 src/config/firebase.conf.js
+firebaseConf.json
