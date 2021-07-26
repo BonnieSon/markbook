@@ -58,8 +58,7 @@ const MainScreen = () => {
     .then((response) => {
       // const bestBooks = response.data;
       console.log(`resposne :${JSON.stringify(response.data)}`);
-      setBestBooks([...response.data])
-      //setBestBooks(response.data);
+      setBestBooks(response.data);
     })
   }, []);
 
@@ -77,26 +76,24 @@ const MainScreen = () => {
       <div className={classes.roadMapTitle}>
         <h3>평점 높은 순위</h3>
       </div>
-      {bestBooks.map(bestBook => {
-        <h2> {bestBook.name}</h2>
-      })}
       <div className={classes.listContainer}>
-        
         <Swiper
           className='swiper-container'
-          spaceBetween={50}
-          slidesPerView={6}
+          spaceBetween={30}
+          slidesPerView={3}
 	        navigation //*
-          pagination={{ clickable: true }} //*
           scrollbar={{ draggable: true }} //*
           onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
           >
-          {bestBooks.map(bestBook=> {
-            <SwiperSlide className={classes.card}>
-              <BookCard name={bestBook.name} author={bestBook.author} image={bestBook.image}/>
-            </SwiperSlide>})
-          }
+          {bestBooks.map(bestBook => {
+            return(
+              <SwiperSlide>
+                <div className={classes.card}>
+                  <BookCard name={bestBook.name} author={bestBook.author} image={bestBook.image}/>
+                </div>
+              </SwiperSlide>
+            )
+          })}
         </Swiper>
           {/* <ul className={classes.cardList}>
             {bestBooks.map(bestBook => 
