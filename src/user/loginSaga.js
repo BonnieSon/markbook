@@ -2,14 +2,10 @@ import firebase from 'firebase'
 import { all, call, fork, getContext, put, take, takeEvery } from 'redux-saga/effects'
 import { reduxSagaFirebase as rsf} from '../config/reduxSagaFirebase';
 import { createAction } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { loginSuccess } from './userSlice';
+import { loginFirebase, loginSuccess } from './userSlice';
 import '../config/types';
+import { instance } from '../config/clientInstance';
 
-const instance = axios.create({
-  baseURL: 'http://localhost:7000',
-  timeout: 1000,
-});
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
@@ -44,13 +40,11 @@ function* loginStatusWatcher() {
   while (true) {
     const { user } = yield take(channel); // 로그인시 user객체 로그아웃시 null을 반환한다.
     if (user) {
+      yield put(loginFirebase(user));
       const token = yield user.getIdToken();
+      instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       try{
-        const response = yield instance.get(`/users/${user.uid}`, {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
+        const response = yield instance.get(`/users/${user.uid}`);
         const serviceUser = response.data; 
         yield put(loginSuccess(serviceUser));
         history.push('/mainpage');

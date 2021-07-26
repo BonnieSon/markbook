@@ -6,8 +6,11 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
   section: {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     marginTop: '6rem',
+  },
+  title: {
+    marginRight: '5rem'
   },
   titleBtn: {
     backgroundColor: '#E16A00',

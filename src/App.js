@@ -7,8 +7,19 @@ import { Switch, Route } from 'react-router-dom';
 import SignUpScreen from './components/SignUpScreen';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import MainPage from './components/MainPage'; 
+import MainPage from './components/MainTitle'; 
 import MainNavbar from './components/MainNavbar';
+import MainTitle from './components/MainTitle';
+import MainScreen from './components/MainScreen';
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const useStyles = makeStyles((theme) => ({
+  main: {
+    minWidth: '1148px',
+    minHight: '300px'
+  }
+}));
 
 
 function App() {
@@ -26,7 +37,10 @@ function App() {
     },
   });
 
+  const classes = useStyles();
+
   return (
+
     <>
       <ThemeProvider theme={theme}>
         <Navbar />
@@ -40,7 +54,10 @@ function App() {
           </Route>
           <Route path="/mainpage">
             <MainNavbar />
-            <MainPage />
+            <div className={classes.main}>   
+              <MainTitle />
+              <MainScreen />
+            </div>
           </Route>
         </Switch> 
       <ThemeProvider theme={theme}>    

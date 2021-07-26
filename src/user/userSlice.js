@@ -9,15 +9,19 @@ export const userSlice = createSlice({
     /**
      * @type {User}
     */
-    user : null,    
+    user : null,
+    firebaseUser : null,    
 
   },
   reducers: {
     loginSuccess: (state, action) => {
       state.user = action.payload;
     },
+    loginFirebase: (state, action) => {
+      state.firebaseUser = action.payload;
+    }
   }
 })
 
-export const { loginSuccess } = userSlice.actions;
+export const { loginSuccess, loginFirebase } = userSlice.actions;
 export default userSlice.reducer;
