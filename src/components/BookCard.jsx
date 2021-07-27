@@ -5,13 +5,29 @@ import StarRateIcon from '@material-ui/icons/StarRate';
 
 
 const useStyles = makeStyles((theme) => ({
-  imgSize: {
-    width: '190px',
-    height: '220px'
-  },
   bookCard: {
-    margin: '0.5rem 2rem',
-    textAlign: 'center'
+    width: '150px',
+    textAlign: 'center',
+  },
+  image: {
+    width: '120px', 
+    height: '180px',
+  },
+  name: {
+    fontWeight: 'bold',
+    fontSize: '16px',
+    marginTop: '0.5rem',
+  },
+  author: {
+    fontSize: '14px',
+    margin: '0.5rem',
+  },
+  rating: {
+    display: 'flex',
+  },
+  star: {
+    color: '#FFD700',
+    marginRight: '0.5rem',
   }
 }));
 
@@ -20,16 +36,20 @@ const BookCard = (props) => {
   const classes = useStyles();
 
   return (
-    <div>
-
-      <img src={props.image} className={classes.imgSize} />
-      <div className={classes.bookCard}>
-        {props.name}<br />
-        {props.author}<br />
-        <StarRateIcon></StarRateIcon>
-        {props.rating}<br />
-        {props.key}
-      </div>
+    <div className={classes.bookCard}>
+      <img src={props.image} className={classes.image} />
+        <div className={classes.name}>{props.name}</div>
+        <div className={classes.author}>{props.author}</div>
+        <div className={classes.rating}>
+          <div className={classes.star}>
+          <StarRateIcon></StarRateIcon>
+          <StarRateIcon></StarRateIcon>
+          <StarRateIcon></StarRateIcon>
+          <StarRateIcon></StarRateIcon>
+          <StarRateIcon></StarRateIcon>
+          </div>
+          <div>{props.rating}</div>
+        </div>
     </div>
   )
 }
