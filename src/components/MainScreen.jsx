@@ -8,7 +8,7 @@ import SwiperCore, {
   Navigation, 
   Pagination, 
   Scrollbar, 
-  A11y 
+  A11y
 } from "swiper"; //*
 
 //style
@@ -17,8 +17,7 @@ import "swiper/components/navigation/navigation.scss"; // *
 import "swiper/components/pagination/pagination.scss"; // *
 import "swiper/components/scrollbar/scrollbar.scss"; // *
 
-
-
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 const useStyles = makeStyles((theme) => ({
   roadMapTitle: {
@@ -30,17 +29,17 @@ const useStyles = makeStyles((theme) => ({
     listStyle: 'none',
   },
   card: {
-    width: '190px',
-    height: '350px',
-    boxShadow: '10px 10px 10px -5px rgba(25, 42, 70, 0.2)',
-    borderRadius: '8px',
-    margin: '0 20px',
+    //  width: '80px',
+    // height: '250px',
+    // boxShadow: '10px 10px 10px -5px rgba(25, 42, 70, 0.2)',
+    // borderRadius: '8px',
+     margin: '0 45px',
   },
   listContainer: {
     display: 'flex',
     justifyContent: 'center', 
-    margin: '8rem 19rem' 
-  }
+    margin: '5rem 19rem 10rem ' 
+  },
 }));
 
 
@@ -66,102 +65,90 @@ const MainScreen = () => {
   useEffect(() => {
     instance.get('/books?category=business')
     .then((response) => {
-      const business = response.data;
+      // const business = response.data;
       console.log(`resposne :${JSON.stringify(response)}`);
-      setBesiness(business);
+      setBesiness([...response.data]);
+    })
+  }, []);
+
+  useEffect(() => {
+    instance.get('/books?category=improvment')
+    .then((response) => {
+      // const business = response.data;
+      console.log(`resposne :${JSON.stringify(response)}`);
+      setImprovment([...response.data]);
     })
   }, []);
 
   return (
     <div className={classes.inner}>
       <div className={classes.roadMapTitle}>
-        <h3>평점 높은 순위</h3>
+        <h2>평점 높은 순위</h2>
       </div>
-      {bestBooks.map(bestBook => {
-        <h2> {bestBook.name}</h2>
-      })}
-      <div className={classes.listContainer}>
-        
+      <div className={classes.listContainer}>    
         <Swiper
-          className='swiper-container'
-          spaceBetween={50}
-          slidesPerView={6}
+        className='swiper-container'
+          spaceBetween={-380}
+          slidesPerView={3}
 	        navigation //*
-          pagination={{ clickable: true }} //*
-          scrollbar={{ draggable: true }} //*
+          // pagination={{ clickable: true }} //*
+          // scrollbar={{ draggable: true }} //*
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
           >
-          {bestBooks.map(bestBook=> {
+          {bestBooks.map((bestBook) => {
+            return(
             <SwiperSlide className={classes.card}>
-              <BookCard name={bestBook.name} author={bestBook.author} image={bestBook.image}/>
-            </SwiperSlide>})
-          }
+              <BookCard name={bestBook.name} author={bestBook.author} image={bestBook.image} rating={bestBook.rating} />
+            </SwiperSlide>
+            )
+          })}
+          </Swiper>
+        </div>
+        <div className={classes.roadMapTitle}>
+          <h2>경제/경영</h2>
+        </div>
+        <div className={classes.listContainer}>
+        <Swiper
+          className='swiper-container'
+          spaceBetween={-380}
+          slidesPerView={3}
+	        navigation //*
+          // pagination={{ clickable: true }} //*
+          // scrollbar={{ pagination: true }} //*
+          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={() => console.log("slide change")}
+        >
+        {business.map((business) => {  
+          return(
+            <SwiperSlide className={classes.card}>
+              <BookCard name={business.name} author={business.author} image={business.image} rating={business.rating}/>
+            </SwiperSlide>
+            )
+          })}
         </Swiper>
-          {/* <ul className={classes.cardList}>
-            {bestBooks.map(bestBook => 
-              <li className={classes.card}>
-                <BookCard 
-                name={bestBook.name} author={bestBook.author} image={bestBook.image}>
-                </BookCard>
-              </li>
-            )}
-            <li className={classes.card}><BookCard></BookCard></li>
-            <li className={classes.card}></li>
-            <li className={classes.card}></li>
-          </ul> */}
         </div>
         <div className={classes.roadMapTitle}>
-          <h3>경제/경영</h3>
-        </div>
-        <div className={classes.listContainer}>
-          {/* <ul className={classes.cardList}>
-          {business.map(business => 
-              <li className={classes.card}>
-                <BookCard 
-                name={business.name} author={business.author} image={business.image} key={business.id}>
-                </BookCard>
-              </li>
->
-          </ul> */}
-        <Swiper
-          className='swiper-container'
-          spaceBetween={35}
-          slidesPerView={6}
-	        navigation //*
-          pagination={{ clickable: true }} //*
-          scrollbar={{ draggable: true }} //*
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
-        >
-        <SwiperSlide className={classes.card}> slide1 </SwiperSlide>
-        <SwiperSlide className={classes.card}> slide2 </SwiperSlide>
-        <SwiperSlide className={classes.card}> slide3 </SwiperSlide>
-        <SwiperSlide className={classes.card}> slide4 </SwiperSlide>
-        <SwiperSlide className={classes.card}> slide5 </SwiperSlide>
-        <SwiperSlide className={classes.card}> slide6 </SwiperSlide>
-      </Swiper>
-        </div>
-        <div className={classes.roadMapTitle}>
-          <h3>자기계발</h3>
+          <h2>자기계발</h2>
         </div>
         <div className={classes.listContainer}>
         <Swiper
           className='swiper-container'
-          spaceBetween={35}
-          slidesPerView={6}
+          spaceBetween={-380}
+          slidesPerView={3}
 	        navigation //*
-          pagination={{ clickable: true }} //*
-          scrollbar={{ draggable: true }} //*
+          // pagination={{ clickable: true }} //*
+          // scrollbar={{ draggable: true }} //*
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log("slide change")}
         >
-        <SwiperSlide className={classes.card}> slide1 </SwiperSlide>
-        <SwiperSlide className={classes.card}> slide2 </SwiperSlide>
-        <SwiperSlide className={classes.card}> slide3 </SwiperSlide>
-        <SwiperSlide className={classes.card}> slide4 </SwiperSlide>
-        <SwiperSlide className={classes.card}> slide5 </SwiperSlide>
-        <SwiperSlide className={classes.card}> slide6 </SwiperSlide>
+        {improvment.map((improvment) => {  
+          return(
+            <SwiperSlide className={classes.card}>
+              <BookCard name={improvment.name} author={improvment.author} image={improvment.image} rating={improvment.rating} />
+            </SwiperSlide>
+            )
+          })}
       </Swiper>
         </div>
       </div>
