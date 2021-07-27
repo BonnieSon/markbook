@@ -12,6 +12,7 @@ import MainNavbar from './components/MainNavbar';
 import MainTitle from './components/MainTitle';
 import MainScreen from './components/MainScreen';
 import { makeStyles } from '@material-ui/core/styles';
+import DetailPage from './components/DetailPage';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -57,6 +58,12 @@ function App() {
             <div className={classes.main}>   
               <MainTitle />
               <MainScreen />
+            </div>
+          </Route>
+          <Route path="/detailpage">
+            <MainNavbar />
+            <div className={classes.main}>   
+              <DetailPage />
             </div>
           </Route>
         </Switch> 
