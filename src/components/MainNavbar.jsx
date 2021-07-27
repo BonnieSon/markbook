@@ -9,20 +9,22 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#d9d9d97d',
     padding: '0.5rem',
     margin: theme.spacing('2rem', 'auto'),
-    color: '#4D2900',
+    fontWeight: 'bold',
+    boxShadow: '10px 10px 10px -5px rgba(25, 42, 70, 0.2)',
+
   },
   category: {
     marginRight: '5rem',
   },
   link: {
     textDecoration: 'none',
-    color: 'none',
+    color: '#4D2900',
     '&:visited': {
       textDcoration: 'none',
       color: 'none',
     },
     '&:hover': {
-      color: 'none',
+      color: '#FF505F',
     },
     '&:active': {
       color: 'black',
