@@ -12,7 +12,10 @@ import MainNavbar from './components/MainNavbar';
 import MainTitle from './components/MainTitle';
 import MainScreen from './components/MainScreen';
 import { makeStyles } from '@material-ui/core/styles';
-import DetailPage from './components/DetailPage';
+import BookDetail from './components/BookDetail';
+import MyReview from './components/MyReview';
+import OtherReviews from './components/OtherReviews';
+import Child from './components/Child';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -60,12 +63,15 @@ function App() {
               <MainScreen />
             </div>
           </Route>
-          <Route path="/detailpage">
+          {/* <Route path="/bookdetail"> */}
+            <Route path="/bookDetail/:id" children={<Child />} />  
             <MainNavbar />
-            <div className={classes.main}>   
-              <DetailPage />
+            <div className={classes.main}> 
+              <BookDetail />
+              <MyReview />
+              <OtherReviews />
             </div>
-          </Route>
+          {/* </Route> */}
         </Switch> 
       <ThemeProvider theme={theme}>    
         <Footer />
