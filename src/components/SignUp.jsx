@@ -70,7 +70,7 @@ export function CheckboxLabels() {
       <FormGroup row className={classes.category}>
         <FormControlLabel
           control={<Checkbox  name="categoryBusiness" color="primary" value="Business" />}
-          label="경영/경제"
+          label="경제/경영"
         />
         <FormControlLabel
           control={<Checkbox  name="categoryImprovment" color="primary" value="Improvment" />}
@@ -82,7 +82,7 @@ export function CheckboxLabels() {
         />
         <FormControlLabel
           control={<Checkbox  name="categoryHistory" color="primary" value="History" />}
-          label="역사"
+          label="인문"
         />
           <FormControlLabel
             control={<Checkbox  name="categoryScience" color="primary" value="Science" />}
