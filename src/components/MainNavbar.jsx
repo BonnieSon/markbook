@@ -38,10 +38,10 @@ const MainNavbar = () => {
   return (
     <div>
       <div className={classes.mainNav}>
-        <span className={classes.category}><a href="#" className={classes.link}>경영/경제</a></span>
+        <span className={classes.category}><a href="#" className={classes.link}>경제/경영</a></span>
         <span className={classes.category}><a href="#" className={classes.link}>자기계발</a></span>
         <span className={classes.category}><a href="#" className={classes.link}>소설</a></span>
-        <span className={classes.category}><a href="#" className={classes.link}>역사</a></span>
+        <span className={classes.category}><a href="#" className={classes.link}>인문</a></span>
         <span className={classes.category}><a href="#" className={classes.link}>과학</a></span>
       </div>        
     </div>
