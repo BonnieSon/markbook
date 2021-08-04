@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import BookCard from './BookCard';
 import { instance } from '../config/clientInstance';
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { 
   Navigation, 
@@ -10,6 +9,7 @@ import SwiperCore, {
   Scrollbar, 
   A11y
 } from "swiper"; //*
+
 
 //style
 import "swiper/swiper.scss";
@@ -55,17 +55,14 @@ const MainScreen = () => {
   useEffect(() => {
     instance.get('/books?category=bestBooks')
     .then((response) => {
-      // const bestBooks = response.data;
       console.log(`resposne :${JSON.stringify(response.data)}`);
       setBestBooks([...response.data])
-      //setBestBooks(response.data);
     })
   }, []);
 
   useEffect(() => {
     instance.get('/books?category=business')
     .then((response) => {
-      // const business = response.data;
       console.log(`resposne :${JSON.stringify(response)}`);
       setBesiness([...response.data]);
     })
@@ -74,7 +71,6 @@ const MainScreen = () => {
   useEffect(() => {
     instance.get('/books?category=improvment')
     .then((response) => {
-      // const business = response.data;
       console.log(`resposne :${JSON.stringify(response)}`);
       setImprovment([...response.data]);
     })
@@ -98,9 +94,9 @@ const MainScreen = () => {
           >
           {bestBooks.map((bestBook) => {
             return(
-            <SwiperSlide className={classes.card}>
-              <BookCard name={bestBook.name} author={bestBook.author} image={bestBook.image} rating={bestBook.rating} />
-            </SwiperSlide>
+              <SwiperSlide className={classes.card}>
+                <BookCard book={bestBook} />
+              </SwiperSlide>
             )
           })}
           </Swiper>
@@ -122,7 +118,7 @@ const MainScreen = () => {
         {business.map((business) => {  
           return(
             <SwiperSlide className={classes.card}>
-              <BookCard name={business.name} author={business.author} image={business.image} rating={business.rating}/>
+                <BookCard book={business}/>
             </SwiperSlide>
             )
           })}
@@ -145,7 +141,7 @@ const MainScreen = () => {
         {improvment.map((improvment) => {  
           return(
             <SwiperSlide className={classes.card}>
-              <BookCard name={improvment.name} author={improvment.author} image={improvment.image} rating={improvment.rating} />
+                <BookCard book={improvment} />
             </SwiperSlide>
             )
           })}
