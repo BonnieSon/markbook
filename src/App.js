@@ -63,15 +63,15 @@ function App() {
               <MainScreen />
             </div>
           </Route>
-          {/* <Route path="/bookdetail"> */}
-            <Route path="/bookDetail/:id" children={<Child />} />  
+          <Route path="/bookdetail">
+            {/* <Route path="/bookDetail/:id" children={<Child />} />   */}
             <MainNavbar />
             <div className={classes.main}> 
               <BookDetail />
               <MyReview />
               <OtherReviews />
             </div>
-          {/* </Route> */}
+          </Route>
         </Switch> 
       <ThemeProvider theme={theme}>    
         <Footer />
