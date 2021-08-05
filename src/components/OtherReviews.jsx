@@ -56,7 +56,8 @@ const OtherReviews = () => {
       const review = response.data;
       instance.get(`/users/${review.author}`)
       .then(res2 => { 
-          review.nickname = res2.data.nickname;
+          console.log(`user : ${JSON.stringify(res2.data)}`);
+          review.nickName = res2.data.nickName;
           setReviews(review);
           console.log(review)
       });
@@ -73,7 +74,7 @@ const OtherReviews = () => {
             </div>  
             <div className={classes.raplyWrap}>
               {
-                <div>{reviews.users.nickname}</div>
+                <div>{reviews.nickName}</div>
               }
               {
                 <div><Rating name="read-only" value={Number(reviews.rating)} precision={0.5} readOnly /></div>
