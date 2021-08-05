@@ -28,10 +28,10 @@ const verifyTokenAndRetuenUid = async (token) => {
 
 const verifyReq = async (req) => {
   console.log(`incomming req ${req.path}`);
-  if(req.path.startsWith('/users')){
-    const uid = await verifyTokenAndRetuenUid(req.headers.authorization.split('Bearer ')[1]);
-    console.log('token verify success');
-  }
+  // if(req.path.startsWith('/users')){
+  //   const uid = await verifyTokenAndRetuenUid(req.headers.authorization.split('Bearer ')[1]);
+  //   console.log('token verify success');
+  // }
 };
 server.use(jsonServer.bodyParser);
 server.use((req, res, next) => {
